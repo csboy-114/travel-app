@@ -39,5 +39,8 @@ export default {
 .swiper-box{
   width: 100vw;
   height: 180px;
+  img{
+    width: 100%;
+  }
 }
 </style>
