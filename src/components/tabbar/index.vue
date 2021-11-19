@@ -23,25 +23,22 @@ export default {
 <style lang='scss'>
 @import '../../assets/styles/layout.scss';
 .tabbar{
-  position: fixed;
-  bottom: 0;
+  @include fix-position($site:bottom);
   width: 100vw;
   padding: 4px 0;
   @include flex($justify:space-evenly);
   border-top: 0 solid #DADADA;
+  box-shadow: 0 -4px 18px rgba(0,0,0,0.15);
   background-color: #fff;
   .tabbar-item{
-    box-sizing: border-box;
     width: 33.333%;
     @include flex($direction:column);
     i{
       font-size: 20px;
-      margin-bottom: 2px;
+      margin-bottom: 5px;
     }
     span{
-      font-family: PingFangSC-Regular;
-      font-size: 12px;
-      color: #666666;
+      @include font-style;
     }
   }
 }

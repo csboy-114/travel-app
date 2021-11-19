@@ -1,10 +1,7 @@
 <template>
   <swiper class="swiper-box" ref="mySwiper" :options="swiperOptions">
-    <swiper-slide>
-      <img src="../../assets/images/矩形.png" alt="轮播图一">
-    </swiper-slide>
-    <swiper-slide>
-      <img src="../../assets/images/矩形.png" alt="轮播图二">
+    <swiper-slide v-for="(item,index) in imgList" :key="index">
+      <img :src="item.url" alt="轮播图">
     </swiper-slide>
     <div class="swiper-pagination" slot="pagination"></div>
   </swiper>

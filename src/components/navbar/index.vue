@@ -1,69 +1,61 @@
 <template>
   <div class="navbar">
-    <div class="navbar-item">
-      <img src="../../assets/images/餐厅.png" alt="餐厅预订">
-      <span>餐厅预订</span>
-    </div>
-    <div class="navbar-item">
-      <img src="../../assets/images/和服.png" alt="和服体验">
-      <span>和服体验</span>
-    </div>
-    <div class="navbar-item">
-      <img src="../../assets/images/茶道.png" alt="茶道">
-      <span>茶道</span>
-    </div>
-    <div class="navbar-item">
-      <img src="../../assets/images/用车.png" alt="用车服务">
-      <span>用车服务</span>
-    </div>
-     <div class="navbar-item">
-      <img src="../../assets/images/轻奢.png" alt="轻奢">
-      <span>轻奢</span>
-    </div>
-    <div class="navbar-item">
-      <img src="../../assets/images/医美.png" alt="医美">
-      <span>医美</span>
-    </div>
-    <div class="navbar-item">
-      <img src="../../assets/images/行程.png" alt="行程定制">
-      <span>行程定制</span>
-    </div>
-    <div class="navbar-item">
-      <img src="../../assets/images/免税品.png" alt="免税品">
-      <span>免税品</span>
+    <div class="navbar-item" v-for="item in navList||defaultArr" :key="item.text">
+      <img :src="item.url" alt="餐厅预订">
+      <span>{{item.text}}</span>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  props:{
+    navList:{
+      type:Array,
+      default:[]
+    }
+  },
+  data() {
+    return {
+      defaultArr:[
+        {url:require('../../assets/images/餐厅.png'),text:'餐厅预订'},
+        {url:require('../../assets/images/和服.png'),text:'和服体验'},
+        {url:require('../../assets/images/茶道.png'),text:'茶道'},
+        {url:require('../../assets/images/用车.png'),text:'用车服务'},
+        {url:require('../../assets/images/轻奢.png'),text:'轻奢'},
+        {url:require('../../assets/images/医美.png'),text:'医美'},
+        {url:require('../../assets/images/行程.png'),text:'行程定制'},
+        {url:require('../../assets/images/免税品.png'),text:'免税品'},
+        
+      ]
+    }
+  },
 }
 
 </script>
 <style lang='scss'>
 @import '../../assets/styles/layout.scss';
 .navbar{
+  box-sizing: content-box;
   width: 100vw;
   @include flex($justify:space-bewteen);
-  padding: 14px 0 8px;
+  padding: 14px 0 14px;
   background-color: #fff;
+  box-shadow: 0 -4px 4px rgba(0,0,0,1);
   .navbar-item{
-    box-sizing: border-box;
     width: 25%;
     @include flex($direction:column);
-    margin-bottom: 10px;
+    &:nth-child(-n+4){
+      margin-bottom: 10px;
+    }
     img{
       display: block;
-      width: 44px;
-      height: 44px;
-      margin-bottom: 3px;
+      width: 30px;
+      height: 30px;
+      margin-bottom: 8px;
     }
     span{
-      font-family: PingFangSC-Regular;
-      font-size: 12px;
-      color: #999999;
-      letter-spacing: 0;
-      text-align: center;
+      @include font-style;
     }
   }
 }

@@ -1,8 +1,8 @@
 <template>
   <div class="index">
      <searchBox/>
-     <carousel/>
-     <navbar/>
+     <carousel :imgList="imgList"/>
+     <navbar :navList="navList"/>
      <tabbar/>
   </div>
 </template>
@@ -12,6 +12,7 @@ import searchBox from '../components/searchbox'
 import carousel from '../components/swiper'
 import navbar from  '../components/navbar'
 import tabbar from '../components/tabbar'
+import {getSwiperInfo,getNavInfo} from '../api/index'
 export default {
   name: 'Index',
   components: {
@@ -20,6 +21,21 @@ export default {
     navbar,
     tabbar
   },
+  data() {
+    return {
+      imgList:[],
+      navList:[]
+    }
+  },
+  created(){
+    Promise.all([getSwiperInfo(),getNavInfo()]).then(res=>{
+      const [swiperRes,navbarRes]=res;
+      this.imgList=swiperRes.data.data;
+      this.navList=navbarRes.data.data;
+    }).catch(err=>{
+      console.log(err);
+    })
+  }
 }
 </script>
 
