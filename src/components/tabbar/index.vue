@@ -38,7 +38,7 @@ export default {
         },
         {
           text:'目的地',
-          class:'icon-visa'
+          class:'icon-dest'
         },
         {
           text:'我的',

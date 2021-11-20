@@ -3,7 +3,7 @@
      <topheader>
        <searchBox/>
      </topheader>
-     <carousel :imgList="imgList"/>
+     <carousel :imgList="imgList" :swiperConfig="{loop:true,autoplay:true,effect:'fade'}"/>
      <navbar :navList="navList"/>
      <tabbar/>
   </div>

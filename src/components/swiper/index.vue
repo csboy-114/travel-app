@@ -1,5 +1,5 @@
 <template>
-  <swiper class="swiper-box" ref="mySwiper" :options="swiperOptions">
+  <swiper class="swiper-box" ref="mySwiper" :options="finalSwiperOptions">
     <swiper-slide v-for="(item,index) in imgList" :key="index">
       <img :src="item.url" alt="轮播图">
     </swiper-slide>
@@ -20,7 +20,7 @@ export default {
       swiperOptions: {
         pagination: {
           el: ".swiper-pagination",
-        },
+        }
       },
     };
   },
@@ -28,6 +28,17 @@ export default {
     imgList:{
       type:Array,
       default:[]
+    },
+    swiperConfig:{
+      type:Object
+    }
+  },
+  computed:{
+    finalSwiperOptions(){
+      return {
+        ...this.swiperOptions,
+        ...this.swiperConfig
+      }
     }
   }
 };
