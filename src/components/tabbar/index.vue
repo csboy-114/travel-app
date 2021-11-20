@@ -5,7 +5,6 @@
     v-for="item in tabbarInfo" 
     :key="item.text"
     @click="goto(item.text)"
-    
     >
       <i class="iconfont" :class="[item.class,nowItem==item.text?'tabbar-item-red':'']"></i>
       <span :class="[nowItem==item.text?'tabbar-item-red':'']">{{item.text}}</span>
@@ -14,6 +13,7 @@
 </template>
 
 <script>
+import {mapState,mapMutations} from 'vuex'
 const tabbarRoutes=[
   {
     text:'首页',
@@ -45,17 +45,18 @@ export default {
           class:'icon-personal'
         }
       ],
-      nowItem:'首页'
     }
   },
   methods:{
     goto(text){
-      this.nowItem=text
+      this.setNowItem(text)
       const path= tabbarRoutes.find(item=>item.text==text).routes
-      if(this.$route.path!==path){
-         this.$router.push(path)
-      }
-    }
+      this.$router.push(path)
+    },
+    ...mapMutations({setNowItem:'setNowItem'})
+  },
+  computed:{
+    ...mapState({nowItem:'nowItem'})
   }
 }
 

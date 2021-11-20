@@ -1,7 +1,7 @@
 <template>
   <div class="search-box">
     <i class="iconfont icon-search"></i>
-    <input type="text" placeholder="搜索目的地/折扣/关键字" />
+    <input autocomplete="off" type="text" placeholder="搜索目的地/折扣/关键字" />
   </div>
 </template>
 
@@ -12,8 +12,6 @@ export default {};
 @import '../../assets/styles/layout.scss';
 .search-box {
   @include flex($justify:flex-start);
-  // top: 25px;
-  // left: 20px;
   margin-top: 25px;
   margin-left: 20px;
   width: 335px;
