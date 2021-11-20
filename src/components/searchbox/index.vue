@@ -11,11 +11,11 @@ export default {};
 <style lang="scss">
 @import '../../assets/styles/layout.scss';
 .search-box {
-  position: fixed;
-  z-index: 60;
   @include flex($justify:flex-start);
-  top: 25px;
-  left: 20px;
+  // top: 25px;
+  // left: 20px;
+  margin-top: 25px;
+  margin-left: 20px;
   width: 335px;
   height: 30px;
   margin: 0 auto;

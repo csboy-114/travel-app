@@ -1,6 +1,8 @@
 <template>
   <div class="index">
-     <searchBox/>
+     <topheader>
+       <searchBox/>
+     </topheader>
      <carousel :imgList="imgList"/>
      <navbar :navList="navList"/>
      <tabbar/>
@@ -12,6 +14,7 @@ import searchBox from '../components/searchbox'
 import carousel from '../components/swiper'
 import navbar from  '../components/navbar'
 import tabbar from '../components/tabbar'
+import topheader from '../components/header'
 import {getSwiperInfo,getNavInfo} from '../api/index'
 export default {
   name: 'Index',
@@ -19,7 +22,8 @@ export default {
     searchBox,
     carousel,
     navbar,
-    tabbar
+    tabbar,
+    topheader
   },
   data() {
     return {
