@@ -1,22 +1,62 @@
 <template>
   <div class="tabbar">
-    <div class="tabbar-item">
-      <i class="iconfont icon-home"></i>
-      <span>首页</span>
-    </div>
-    <div class="tabbar-item">
-       <i class="iconfont icon-visa"></i>
-      <span>目的地</span>
-    </div>
-    <div class="tabbar-item">
-       <i class="iconfont icon-personal"></i>
-      <span>我的</span>
+    <div 
+    class="tabbar-item" 
+    v-for="item in tabbarInfo" 
+    :key="item.text"
+    @click="goto(item.text)"
+    
+    >
+      <i class="iconfont" :class="[item.class,nowItem==item.text?'tabbar-item-red':'']"></i>
+      <span :class="[nowItem==item.text?'tabbar-item-red':'']">{{item.text}}</span>
     </div>
   </div>
 </template>
 
 <script>
+const tabbarRoutes=[
+  {
+    text:'首页',
+    routes:'/'
+  },
+  {
+    text:'目的地',
+    routes:'/destination'
+  },
+  {
+    text:'我的',
+    routes:'/personal'
+  },
+]
 export default {
+  data() {
+    return {
+      tabbarInfo:[
+        {
+          text:'首页',
+          class:'icon-home'
+        },
+        {
+          text:'目的地',
+          class:'icon-visa'
+        },
+        {
+          text:'我的',
+          class:'icon-personal'
+        }
+      ],
+      nowItem:'首页'
+    }
+  },
+  methods:{
+    goto(text){
+      this.nowItem=text
+      const path= tabbarRoutes.find(item=>item.text==text).routes
+      if(this.$route.path!==path){
+         this.$router.push(path)
+      }
+    }
+  }
 }
 
 </script>
@@ -39,6 +79,9 @@ export default {
     }
     span{
       @include font-style;
+    }
+    &-red{
+      color: red!important;
     }
   }
 }
