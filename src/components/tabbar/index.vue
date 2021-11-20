@@ -51,7 +51,9 @@ export default {
     goto(text){
       this.setNowItem(text)
       const path= tabbarRoutes.find(item=>item.text==text).routes
-      this.$router.push(path)
+      if(this.$route.path!== path){
+        this.$router.push(path)
+      }
     },
     ...mapMutations({setNowItem:'setNowItem'})
   },
