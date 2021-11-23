@@ -39,7 +39,9 @@ export default {
   }
   &-item{
     @include flex($inline:inline-block,$direction:column,$justify:space-between,$align:flex-start);
-    margin-right: 22px;
+    &:nth-child(2n){
+      margin-right: 27px;
+    }
     margin-bottom: 10px;
     img{
       width: 158px;
