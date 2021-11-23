@@ -5,8 +5,8 @@
      </topheader>
      <carousel :imgList="imgList" :swiperConfig="{loop:true,autoplay:true,effect:'fade'}"/>
      <navbar :navList="navList"/>
-     <tabbar/>
      <count/>
+     <tabbar/>
   </div>
 </template>
 
