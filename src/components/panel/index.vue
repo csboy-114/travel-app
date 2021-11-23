@@ -1,5 +1,5 @@
 <template>
-  <div class="panel" :class="[transformClass]">
+  <div class="panel"  :style="{margin,padding}">
     <slot></slot>
   </div>
 </template>
@@ -8,9 +8,13 @@
 export default {
   name:'Panel',
   props:{
-    transformClass:{
+    margin:{
       type:String,
-      default:''
+      default:'10px 0 10px'
+    },
+    padding:{
+      type:String,
+      default:'10px'
     }
   }
 }
@@ -18,9 +22,7 @@ export default {
 </script>
 <style lang='scss'>
   .panel{
-    width: 100%;
+    width: 100vw;
     background-color: #fff;
-    padding: 10px;
-    margin-bottom: 10px;
   }
 </style>

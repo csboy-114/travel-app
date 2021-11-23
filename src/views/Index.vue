@@ -6,6 +6,7 @@
      <carousel :imgList="imgList" :swiperConfig="{loop:true,autoplay:true,effect:'fade'}"/>
      <navbar :navList="navList"/>
      <tabbar/>
+     <count/>
   </div>
 </template>
 
@@ -15,6 +16,8 @@ import carousel from '../components/swiper'
 import navbar from  '../components/navbar'
 import tabbar from '../components/tabbar'
 import topheader from '../components/header'
+import loading from '../components/loading'
+import count from '../components/count'
 import {getSwiperInfo,getNavInfo} from '../api/index'
 export default {
   name: 'Index',
@@ -23,7 +26,9 @@ export default {
     carousel,
     navbar,
     tabbar,
-    topheader
+    topheader,
+    loading,
+    count
   },
   data() {
     return {
