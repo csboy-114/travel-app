@@ -15,6 +15,11 @@
 
 <script>
 export default {
+  data() {
+    return {
+      
+    }
+  },
 }
 
 </script>
@@ -24,19 +29,18 @@ export default {
   display: content-box;
   width: 100vw;
   margin-top: 10px;
-  padding: 15px 0 80px 15px;
+  padding: 15px 0 70px 15px;
   font-size: 14px;
   background-color: #fff;
   &-title{
     margin-bottom: 10px;
-    font-family: PingFangSC-Medium;
-    font-size: 16px;
+    @include font-style($fontSize:16px,$fontColor:#191919);
     font-weight: 600;
-    color: #191919;
   }
   &-item{
     @include flex($inline:inline-block,$direction:column,$justify:space-between,$align:flex-start);
     margin-right: 22px;
+    margin-bottom: 10px;
     img{
       width: 158px;
       margin-bottom: 6px;
@@ -45,16 +49,12 @@ export default {
       width: 158px;
       height: 40px;
       margin-bottom: 2px;
-      font-family: PingFangSC-Regular;
-      font-size: 14px;
-      color: #333333;
-      @include ellipsis($singe:mult);
+      @include font-style($fontColor:#333);
+      @include ellipsis($singe:multi-line);
     }
     &-price{
+      @include font-style($fontColor:#E93B3B);
       font-weight: 600;
-      font-family: PingFangSC-Semibold;
-      font-size: 14px;
-      color: #E93B3B;
     }
   }
 }

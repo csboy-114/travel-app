@@ -18,10 +18,10 @@
     word-wrap: break-word;
   }
 }
-@mixin font-style {
+@mixin font-style($fontSize:14px,$fontColor:#666) {
   font-family: PingFangSC-Regular;
-  font-size: 14px;
-  color: #666666;
+  font-size: $fontSize;
+  color: $fontColor;
 }
 @mixin  fix-position($site:top) {
   position: fixed;
