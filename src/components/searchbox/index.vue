@@ -28,6 +28,7 @@ export default {};
     width: 200px;
     height: 100%;
     color: #fff;
+    font-size: 14px;
     margin-left: 10px;
     &::-webkit-input-placeholder {
       color: #fff;

@@ -12,7 +12,9 @@ export default {
   props:{
     navList:{
       type:Array,
-      default:[]
+      default:()=>{
+        return []
+      }
     }
   },
   data() {

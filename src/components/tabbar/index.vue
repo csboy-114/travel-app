@@ -68,7 +68,7 @@ export default {
 .tabbar{
   @include fix-position($site:bottom);
   width: 100vw;
-  padding: 4px 0;
+  padding: 6px 0;
   @include flex($justify:space-evenly);
   border-top: 0 solid #DADADA;
   box-shadow: 0 -4px 18px rgba(0,0,0,0.15);

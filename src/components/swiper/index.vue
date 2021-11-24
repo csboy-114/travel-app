@@ -27,7 +27,9 @@ export default {
   props:{
     imgList:{
       type:Array,
-      default:[]
+      default:()=>{
+        return []
+      }
     },
     swiperConfig:{
       type:Object
