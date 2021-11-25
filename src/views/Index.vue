@@ -19,7 +19,6 @@ import topheader from '../components/header'
 import loading from '../components/loading'
 import count from '../components/count'
 import {getSwiperInfo,getNavInfo} from '../api/index'
-import {mapState,mapMutations} from 'vuex'
 export default {
   name: 'Index',
   components: {
@@ -33,24 +32,15 @@ export default {
   },
   data() {
     return {
-      // imgList:[],
-      // navList:[]
+      imgList:[],
+      navList:[]
     }
-  },
-  computed:{
-    ...mapState(['imgList','navList'])
-  },
-  methods:{
-    ...mapMutations(['setImgList','setNavList'])
   },
   created(){
-    if(this.imgList&&this.navList){
-      return;
-    }
     Promise.all([getSwiperInfo(),getNavInfo()]).then(res=>{
       const [swiperRes,navbarRes]=res;
-      this.setImgList(swiperRes.data.data)
-      this.setNavList(navbarRes.data.data)
+      this.imgList=swiperRes.data.data;
+      this.navList=navbarRes.data.data;
     }).catch(err=>{
       console.log(err);
     })

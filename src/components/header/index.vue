@@ -29,8 +29,14 @@ export default {
     },
   },
   mounted() {
-    //还要做节流处理
     window.addEventListener("scroll", this.scrollFn, false);
+  },
+  activated(){
+    window.addEventListener("scroll", this.scrollFn, false);
+  },
+  deactivated(){
+     this.isChangeBgc=false
+     window.removeEventListener("scroll", this.scrollFn);
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.scrollFn);
