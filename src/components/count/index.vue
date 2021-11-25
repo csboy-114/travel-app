@@ -40,7 +40,7 @@ export default {
   &-item{
     @include flex($inline:inline-block,$direction:column,$justify:space-between,$align:flex-start);
     &:nth-child(2n){
-      margin-right: 27px;
+      margin-right: 29px;
     }
     margin-bottom: 10px;
     img{
