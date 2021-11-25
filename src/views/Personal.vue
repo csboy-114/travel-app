@@ -8,8 +8,12 @@
 <script>
 import tabbar from '../components/tabbar'
 export default {
+  name:'Personal',
   components:{
     tabbar
+  },
+  created(){
+    console.log('personal created');
   }
 }
 </script>

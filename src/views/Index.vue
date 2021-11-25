@@ -1,5 +1,6 @@
 <template>
   <div class="index">
+    <loading  :isShow="isLoading"/>
      <topheader>
        <searchBox/>
      </topheader>
@@ -33,17 +34,22 @@ export default {
   data() {
     return {
       imgList:[],
-      navList:[]
+      navList:[],
+      isLoading:false
     }
   },
   created(){
-    Promise.all([getSwiperInfo(),getNavInfo()]).then(res=>{
+    this.isLoading=true
+    setTimeout(()=>{
+      Promise.all([getSwiperInfo(),getNavInfo()]).then(res=>{
       const [swiperRes,navbarRes]=res;
       this.imgList=swiperRes.data.data;
       this.navList=navbarRes.data.data;
+      this.isLoading=false
     }).catch(err=>{
       console.log(err);
     })
+    },1000)
   }
 }
 </script>
