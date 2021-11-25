@@ -28,8 +28,10 @@ export default {
       }
     },
     goTop(){
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
+      window.scrollTo({
+        top:0,
+        behavior:'smooth'
+      })
     }
   },
   mounted() {
@@ -60,6 +62,7 @@ export default {
   bottom: 80px;
   border-radius: 50%;
   background-color: rgba(25, 196, 138, 0.9);
+  transition: 0.7s;
   .icon-up{
     font-size: 30px;
     color:#fff;
