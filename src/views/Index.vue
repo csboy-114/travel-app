@@ -40,8 +40,7 @@ export default {
   },
   created(){
     this.isLoading=true
-    setTimeout(()=>{
-      Promise.all([getSwiperInfo(),getNavInfo()]).then(res=>{
+     Promise.all([getSwiperInfo(),getNavInfo()]).then(res=>{
       const [swiperRes,navbarRes]=res;
       this.imgList=swiperRes.data.data;
       this.navList=navbarRes.data.data;
@@ -49,7 +48,6 @@ export default {
     }).catch(err=>{
       console.log(err);
     })
-    },1000)
   }
 }
 </script>
