@@ -34,10 +34,12 @@ export default {
           body.style.overflow="hidden"
           body.style.height="100%"
         }else{
-          html.style.overflow="visible";
-          html.style.height="auto"
-          body.style.overflow="visible"
-          body.style.height="auto"
+          html.style.overflowX='hidden'
+          html.style.overflowY='auto'
+          html.style.height='auto'
+          body.style.overflowX='hidden'
+          body.style.overflowY='auto'
+          body.style.height='auto'
         }
       }
     }
