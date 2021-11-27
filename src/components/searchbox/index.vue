@@ -1,12 +1,19 @@
 <template>
   <div class="search-box">
     <i class="iconfont icon-search"></i>
-    <input autocomplete="off" type="text" placeholder="搜索目的地/折扣/关键字" />
+    <input autocomplete="off" type="text" :placeholder="placeholder" />
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props:{
+    placeholder:{
+      type:String,
+      default:''
+    }
+  }
+};
 </script>
 <style lang="scss">
 @import '../../assets/styles/layout.scss';

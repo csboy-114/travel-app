@@ -2,7 +2,7 @@
   <div class="index">
     <loading  :isShow="isLoading"/>
      <topheader>
-       <searchBox/>
+       <searchBox :placeholder="'搜索目的地/折扣/关键字'"/>
      </topheader>
      <carousel :imgList="imgList" :swiperConfig="{loop:true,autoplay:true,effect:'fade'}"/>
      <navbar :navList="navList"/>
