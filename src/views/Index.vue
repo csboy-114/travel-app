@@ -45,8 +45,8 @@ export default {
     this.isLoading=true
      Promise.all([getSwiperInfo(),getNavInfo()]).then(res=>{
       const [swiperRes,navbarRes]=res;
-      this.imgList=swiperRes.data.data;
-      this.navList=navbarRes.data.data;
+      this.imgList=swiperRes;
+      this.navList=navbarRes;
       this.isLoading=false
     }).catch(err=>{
       console.log(err);

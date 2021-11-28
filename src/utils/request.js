@@ -5,4 +5,16 @@ const request=axios.create({
   withCredentials:true
 })
 
+request.interceptors.response.use(
+  response=>{
+    if(response.data.code===200){
+      return response.data.data
+    }
+  },
+  error=>{
+    return Promise.reject(error.response.status)
+  }
+)
+
+
 export default request

@@ -7,12 +7,21 @@
     <div class="des-sidemenu">
       <div 
       class="des-sidemenu-item"
-      :style="{'--display': siedebarClickItem==item?'block':'none'}"
+      :style="{'--display': siedebarClickItem==item.text?'block':'none'}"
       @click="changeSideBarStyle(item)"
-      :class="{select:siedebarClickItem==item}"
+      :class="{select:siedebarClickItem==item.text}"
       v-for="item in sidebarInfo"   
-      :key="item"
-      >{{item}}</div>
+      :key="item.id"
+      >{{item.text}}</div>
+    </div>
+    <div class="des-main">
+      <div class="des-main-item" 
+      v-for="item in desMainInfo"
+      :key="item.text"
+      :style="{backgroundImage:`url(${item.url})`}"
+      >
+      {{item.text}}
+      </div>
     </div>
     <tabbar/>
   </div>
@@ -21,6 +30,7 @@
 <script>
 import tabbar from '../components/tabbar'
 import searchBox from '../components/searchbox'
+import {getDestInfo} from '../api/destination'
 export default {
   name:'Destination',
   components:{
@@ -29,17 +39,39 @@ export default {
   },
   data() {
     return {
-      sidebarInfo:['亚洲','欧洲','非洲','北美','大洋洲','南美','南极洲'],
+      sidebarInfo:[
+        {id:1,text:'亚洲'},
+        {id:2,text:'欧洲'},
+        {id:3,text:'非洲'},
+        {id:4,text:'北美'},
+        {id:5,text:'大洋洲'},
+        {id:6,text:'南美'},
+        {id:7,text:'南极洲'},
+        ],
       siedebarClickItem:'亚洲',
-      displayVar:'block'
+      displayVar:'block',
+      desMainInfo:[],
     }
   },
   methods:{
     changeSideBarStyle(currentItem){
       console.log(currentItem);
-      this.siedebarClickItem=currentItem
+      this.siedebarClickItem=currentItem.text
+      this.getDestMainInfo(currentItem.id)
+    },
+    getDestMainInfo(id){
+     getDestInfo(id).then(res=>{
+        this.desMainInfo=res
+        console.log(this.desMainInfo);
+      }).catch(err=>{
+        console.log(err);
+      })
     }
-  }
+    
+  },
+  created() {
+    this.getDestMainInfo(1)
+  },
 }
 </script>
 
@@ -62,6 +94,7 @@ export default {
       }
     }
     &-sidemenu{
+      float: left;
       width: 76px;
       height: 518px;
       font-family: PingFangSC-Regular;
@@ -80,12 +113,39 @@ export default {
         &::before{
           position: absolute;
           display: var(--display);
+          content: '';
           left: 0;
           width: 2px;
           height: 40px;
-          content: '';
           background-color: #BF2A2F;
         }
+      }
+    }
+    &-main{
+      overflow: auto;
+      float: left;
+      width: 299px;
+      height: 518px;
+      padding-top: 20px;
+      padding-left: 20px;
+      padding-bottom: 50px;
+      background-color: #fff;
+      display: flex;
+      flex-wrap: wrap;
+      &-item{
+        width: 120px;
+        height: 68px;
+        line-height: 68px;
+        margin-bottom: 20px;
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        color: #FFFFFF;
+        text-align: center;
+        &:nth-child(2n-1){
+          margin-right: 19px;
+        }
+        background-color:skyblue;
       }
     }
   }

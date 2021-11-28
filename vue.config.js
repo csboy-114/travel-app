@@ -2,7 +2,7 @@ module.exports = {
   devServer: {
     proxy: {
       "/api": {
-        target: "https://www.imooc.com/api",
+        target: "https://www.imooc.com/api/mall-wepApp",
         changeOrigin: true,
         pathRewrite: {
           "^/api": "",
