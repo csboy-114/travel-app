@@ -57,7 +57,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: -60px;
+    margin-top: -63px;
     img{
       width: 139px;
       height: 139px;
