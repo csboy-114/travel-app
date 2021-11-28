@@ -14,7 +14,7 @@
       :key="item.id"
       >{{item.text}}</div>
     </div>
-    <div class="des-main">
+    <div class="des-main" id="des-main">
       <div class="des-main-item" 
       v-for="item in desMainInfo"
       :key="item.text"
@@ -23,6 +23,7 @@
       {{item.text}}
       </div>
     </div>
+    <backTop/>
     <tabbar/>
   </div>
 </template>
@@ -30,12 +31,14 @@
 <script>
 import tabbar from '../components/tabbar'
 import searchBox from '../components/searchbox'
+import backTop from '../components/backtop-des'
 import {getDestInfo} from '../api/destination'
 export default {
   name:'Destination',
   components:{
     tabbar,
-    searchBox
+    searchBox,
+    backTop
   },
   data() {
     return {
@@ -55,14 +58,12 @@ export default {
   },
   methods:{
     changeSideBarStyle(currentItem){
-      console.log(currentItem);
       this.siedebarClickItem=currentItem.text
       this.getDestMainInfo(currentItem.id)
     },
     getDestMainInfo(id){
      getDestInfo(id).then(res=>{
         this.desMainInfo=res
-        console.log(this.desMainInfo);
       }).catch(err=>{
         console.log(err);
       })
