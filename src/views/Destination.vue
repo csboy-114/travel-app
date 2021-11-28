@@ -23,7 +23,7 @@
       {{item.text}}
       </div>
     </div>
-    <backTop/>
+    <backTop :scrollContainer="'des-main'"/>
     <tabbar/>
   </div>
 </template>

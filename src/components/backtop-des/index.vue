@@ -11,12 +11,17 @@ export default {
     return {
       isShow: false,
       isLock:false,
-      desMain:document.getElementById('des-main')
     };
+  },
+  props:{
+    scrollContainer:{
+      type:String,
+      default:''
+    }
   },
   methods: {
     isOver() {
-      const scrollTop = document.getElementById('des-main').scrollTop
+      const scrollTop = this.el.scrollTop
       return scrollTop > 80;
     },
     scrollFn() {
@@ -29,24 +34,29 @@ export default {
       }
     },
     goTop(){
-      document.getElementById('des-main').scrollTo({
+      this.el.scrollTo({
         top:0,
         behavior:'smooth'
       })
     }
   },
+  computed:{
+    el(){
+      return document.getElementById(this.scrollContainer)
+    }
+  },
   mounted() {
-    document.getElementById('des-main').addEventListener("scroll", this.scrollFn, false);
+    this.el.addEventListener("scroll", this.scrollFn, false);
   },
   activated(){
-    document.getElementById('des-main').addEventListener("scroll", this.scrollFn, false);
+    this.el.addEventListener("scroll", this.scrollFn, false);
   },
   deactivated(){  
      this.isShow=false
-     document.getElementById('des-main').removeEventListener("scroll", this.scrollFn);
+     this.el.removeEventListener("scroll", this.scrollFn);
   },
   beforeDestroy() {
-    document.getElementById('des-main').removeEventListener("scroll", this.scrollFn);
+    this.el.removeEventListener("scroll", this.scrollFn);
   },
 }
 
