@@ -79,11 +79,20 @@ export default {
   .list{
     margin-top: 52px;
     &-item{
+      position: relative;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 0 20px;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
+      &::after{
+        position: absolute;
+        bottom: -12px;
+        content: '';
+        width: 335px;
+        height: 1px;
+        background-color: rgba($color: #ccc, $alpha: 0.2);
+      }
       p{
         font-family: PingFangSC-Regular;
         font-size: 16px;
