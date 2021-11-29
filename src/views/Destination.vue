@@ -84,7 +84,8 @@ export default {
     &-header{
       width: 100vw;
       height: 149px;
-      background-image: url('../assets/images/Cover 0.png');
+      background: url('../assets/images/Cover 0.png') no-repeat;
+      background-size: cover;
       padding-top: 50px;
       h1{
         margin-bottom: 17px;
