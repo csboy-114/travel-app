@@ -1,16 +1,27 @@
 <template>
   <div class="home">
-    <component :is="currentComponent"></component>
+     <keep-alive include="Index,Destination,Personal">
+       <component :is="currentComponent"></component>
+    </keep-alive>
     <tabbar/>
   </div>
 </template>
 
 <script>
 import tabbar from '../components/tabbar'
-
+import Index from './Index.vue'
+import Destination from './Destination.vue'
+import Personal from './Personal.vue'
+import {mapState} from 'vuex'
 export default {
   components:{
-    tabbar
+    tabbar,
+    Index,
+    Destination,
+    Personal
+  },
+  computed:{
+    ...mapState({currentComponent:'currentComponent'})
   }
 }
 

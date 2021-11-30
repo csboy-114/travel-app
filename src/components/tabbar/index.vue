@@ -4,7 +4,7 @@
     class="tabbar-item" 
     v-for="item in tabbarInfo" 
     :key="item.text"
-    @click="goto(item.text)"
+    @click="goto(item)"
     >
       <i class="iconfont" :class="[item.class,nowItem==item.text?'tabbar-item-red':'']"></i>
       <span :class="[nowItem==item.text?'tabbar-item-red':'']">{{item.text}}</span>
@@ -34,28 +34,28 @@ export default {
       tabbarInfo:[
         {
           text:'首页',
-          class:'icon-home'
+          class:'icon-home',
+          name:'Index'
         },
         {
           text:'目的地',
-          class:'icon-dest'
+          class:'icon-dest',
+          name:'Destination'
         },
         {
           text:'我的',
-          class:'icon-personal'
+          class:'icon-personal',
+          name:'Personal'
         }
       ],
     }
   },
   methods:{
-    goto(text){
-      this.setNowItem(text)
-      const path= tabbarRoutes.find(item=>item.text==text).routes
-      if(this.$route.path!== path){
-        this.$router.push(path)
-      }
+    goto(item){
+      this.setNowItem(item.text)
+      this.setComponentName(item.name)
     },
-    ...mapMutations({setNowItem:'setNowItem'})
+    ...mapMutations({setNowItem:'setNowItem',setComponentName:'setComponentName'})
   },
   computed:{
     ...mapState({nowItem:'nowItem'})
