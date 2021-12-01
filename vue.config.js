@@ -1,4 +1,5 @@
 module.exports = {
+  publicPath: process.env.NODE_ENV === "production" ? "/travel-app/" : "/",
   devServer: {
     proxy: {
       "/api": {
@@ -9,9 +10,9 @@ module.exports = {
         },
       },
     },
-    https: false, 
-    open: true, 
+    https: false,
+    open: true,
   },
   lintOnSave: false,
-  productionSourceMap: false, 
+  productionSourceMap: false,
 };

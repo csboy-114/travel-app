@@ -34,7 +34,6 @@
       </div>
     </div>
     <backTop :scrollContainer="'des-main'" />
-    <tabbar />
   </div>
 </template>
 

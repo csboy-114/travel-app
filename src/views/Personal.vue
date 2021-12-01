@@ -28,7 +28,6 @@
         <i class="iconfont icon-right"></i>
       </div>
     </div>
-    <tabbar />
   </div>
 </template>
 

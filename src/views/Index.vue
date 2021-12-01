@@ -8,7 +8,6 @@
      <navbar :navList="navList"/>
      <count/>
      <backtop />
-     <tabbar/>
   </div>
 </template>
 
