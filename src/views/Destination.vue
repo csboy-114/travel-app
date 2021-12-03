@@ -66,7 +66,15 @@ export default {
     };
   },
   methods: {
+    cancel(){
+      let cancelArr=window.axiosCancel;
+      cancelArr.forEach((ele,index) => {
+        ele.cancel('取消了请求')
+        delete window.axiosCancel[index]
+      });
+    },
     changeSideBarStyle(currentItem) {
+      this.cancel()
       this.siedebarClickItem = currentItem.text;
       this.getDestMainInfo(currentItem.id);
     },
