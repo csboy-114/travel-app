@@ -63,6 +63,7 @@ export default {
       siedebarClickItem: "亚洲",
       displayVar: "block",
       desMainInfo: [],
+      cache:[]
     };
   },
   methods: {
@@ -76,12 +77,17 @@ export default {
     changeSideBarStyle(currentItem) {
       this.cancel()
       this.siedebarClickItem = currentItem.text;
-      this.getDestMainInfo(currentItem.id);
+      if(!sessionStorage.getItem(currentItem.id)){
+        this.getDestMainInfo(currentItem.id);
+      }else{
+        this.desMainInfo=JSON.parse(sessionStorage.getItem(currentItem.id))
+      }
     },
     getDestMainInfo(id) {
       getDestInfo(id)
         .then((res) => {
-          this.desMainInfo = res;
+            this.desMainInfo = res;
+            sessionStorage.setItem(id,JSON.stringify(res))
         })
         .catch((err) => {
           console.log(err);
