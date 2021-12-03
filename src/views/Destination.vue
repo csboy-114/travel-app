@@ -42,6 +42,7 @@ import tabbar from "../components/tabbar";
 import searchBox from "../components/searchbox";
 import backTop from "../components/backtop-des";
 import { getDestInfo } from "../api/destination";
+import {get,set} from '@/utils/sessionStorage.js'
 export default {
   name: "Destination",
   components: {
@@ -77,17 +78,17 @@ export default {
     changeSideBarStyle(currentItem) {
       this.cancel()
       this.siedebarClickItem = currentItem.text;
-      if(!sessionStorage.getItem(currentItem.id)){
+      if(!get(currentItem.id)){
         this.getDestMainInfo(currentItem.id);
       }else{
-        this.desMainInfo=JSON.parse(sessionStorage.getItem(currentItem.id))
+        this.desMainInfo=get(currentItem.id)
       }
     },
     getDestMainInfo(id) {
       getDestInfo(id)
         .then((res) => {
             this.desMainInfo = res;
-            sessionStorage.setItem(id,JSON.stringify(res))
+            set(id,res)
         })
         .catch((err) => {
           console.log(err);
