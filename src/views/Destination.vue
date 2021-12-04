@@ -40,7 +40,7 @@
 <script>
 import tabbar from "../components/tabbar";
 import searchBox from "../components/searchbox";
-import backTop from "../components/backtop-des";
+import backTop from "../components/backtop";
 import { getDestInfo } from "../api/destination";
 import {get,set} from '@/utils/sessionStorage.js'
 export default {
