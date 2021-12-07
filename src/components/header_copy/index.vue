@@ -14,7 +14,7 @@ export default {
   },
   methods: {
     isOver() {
-      const scrollTop = document.getElementById('index').scrollTop;
+      const scrollTop = document.getElementById('details').scrollTop;
       const headerHight=document.getElementById("header").clientHeight;
       return scrollTop > headerHight;
     },
@@ -29,17 +29,17 @@ export default {
     },
   },
   mounted() {
-    document.getElementById('index').addEventListener("scroll", this.scrollFn, false);
+    document.getElementById('details').addEventListener("scroll", this.scrollFn, false);
   },
-  activated(){
-    document.getElementById('index').addEventListener("scroll", this.scrollFn, false);
-  },
+  // activated(){
+  //   document.getElementById('details').addEventListener("scroll", this.scrollFn, false);
+  // },
   // deactivated(){
   //    this.isChangeBgc=false
-  //    document.getElementById('index').removeEventListener("scroll", this.scrollFn);
+  //    document.getElementById('details').removeEventListener("scroll", this.scrollFn);
   // },
   // beforeDestroy() {
-  //   document.getElementById('index').removeEventListener("scroll", this.scrollFn);
+  //   document.getElementById('details').removeEventListener("scroll", this.scrollFn);
   // },
 };
 </script>
