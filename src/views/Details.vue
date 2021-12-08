@@ -7,24 +7,26 @@
         <img src="@/assets/images/Combined Shape.png">
       </span>
     </top-header>
-    <div class="details-top"></div>
+    <div class="details-top" :style="{backgroundImage:`url(${detailsInfo.img})`}"></div>
     <div class="details-intros">
       <p>
-        上海/广州直飞三亚5天亲子游（亲子/蜜月+豪华亲子酒店任意搭配+专车接送机+无限次畅游亚特水族馆和水世界+超值赠送5选一）
+        {{detailsInfo.title}}
       </p>
       <div class="give">
-        <span>赠送接机</span>
-        <span>赠当地游项目</span>
+        <span :key="index"
+        v-text="item" 
+        v-for="(item,index) in detailsInfo.tags"></span>
       </div>
       <div class="counts">
-        <span>浏览 24004</span>
-        <span>已售 138份</span>
+        <span>浏览 {{detailsInfo.vistor_counts}}</span>
+        <span>已售 {{detailsInfo.sold_counts}}份</span>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import {getDetailsInfo} from '../api/details'
 import TopHeader from '../components/header_copy'
 export default {
   name:'Details',
@@ -39,8 +41,19 @@ export default {
   methods:{
     goBack(){
       this.$router.back()
+    },
+    init(){
+      const id=this.$route.params.id
+      getDetailsInfo(id).then(res=>{
+        this.detailsInfo=res
+      }).catch(err=>{
+        console.log(err);
+      })
     }
-  }
+  },
+  created() {
+    this.init()
+  },
 }
 
 </script>
