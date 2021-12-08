@@ -43,6 +43,8 @@ export default {
   width: 100%;
   height: 56px;
   @include flex();
+  justify-content: center;
+  align-items: center;
   background-color: transparent;
   transition:background 0.3s ease-out;
   &-transition {

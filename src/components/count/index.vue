@@ -88,7 +88,8 @@ export default {
     font-weight: 600;
   }
   &-item{
-    @include flex($inline:inline-block,$direction:column,$justify:space-between,$align:flex-start);
+    @include flex($inline:inline-block,$direction:column);
+    justify-content: space-between;
     &:nth-child(2n){
       margin-right: 29px;
     }

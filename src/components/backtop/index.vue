@@ -66,6 +66,8 @@ export default {
 .back-top{
   position: fixed;
   @include flex();
+  justify-content: center;
+  align-items: center;
   z-index: 200;
   width: 40px;
   height: 40px;

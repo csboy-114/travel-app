@@ -69,13 +69,16 @@ export default {
   @include fix-position($site:bottom);
   width: 100vw;
   padding: 6px 0;
-  @include flex($justify:space-evenly);
+  @include flex();
+  justify-content: space-evenly;
   border-top: 0 solid #DADADA;
   box-shadow: 0 -4px 18px rgba(0,0,0,0.15);
   background-color: #fff;
   .tabbar-item{
     width: 33.333%;
     @include flex($direction:column);
+    justify-content: space-evenly;
+    align-items: center;
     i{
       font-size: 20px;
       margin-bottom: 5px;

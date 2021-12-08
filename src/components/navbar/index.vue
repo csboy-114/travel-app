@@ -40,13 +40,16 @@ export default {
 .navbar{
   box-sizing: content-box;
   width: 100vw;
-  @include flex($justify:space-bewteen);
+  @include flex();
+  justify-content: space-between;
   padding: 14px 0 14px;
   background-color: #fff;
   box-shadow: 0 -4px 4px rgba(0,0,0,1);
   .navbar-item{
     width: 25%;
     @include flex($direction:column);
+    justify-content: center;
+    align-items: center;
     &:nth-child(-n+4){
       margin-bottom: 10px;
     }

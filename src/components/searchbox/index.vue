@@ -18,7 +18,9 @@ export default {
 <style lang="scss">
 @import '../../assets/styles/layout.scss';
 .search-box {
-  @include flex($justify:flex-start);
+  @include flex();
+  justify-content: center;
+  align-items: center;
   margin-top: 25px;
   margin-left: 20px;
   width: 335px;
@@ -53,7 +55,6 @@ export default {
       color: red;
     }
     background-color: transparent;
-    
   }
 }
 </style>
