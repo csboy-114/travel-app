@@ -31,16 +31,10 @@ export default {
   mounted() {
     document.getElementById('details').addEventListener("scroll", this.scrollFn, false);
   },
-  // activated(){
-  //   document.getElementById('details').addEventListener("scroll", this.scrollFn, false);
-  // },
-  // deactivated(){
-  //    this.isChangeBgc=false
-  //    document.getElementById('details').removeEventListener("scroll", this.scrollFn);
-  // },
-  // beforeDestroy() {
-  //   document.getElementById('details').removeEventListener("scroll", this.scrollFn);
-  // },
+  activated(){
+    this.isChangeBgc=false
+    document.getElementById('details').addEventListener("scroll", this.scrollFn, false);
+  },
 };
 </script>
 <style lang="scss">

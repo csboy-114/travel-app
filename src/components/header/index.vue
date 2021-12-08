@@ -32,15 +32,8 @@ export default {
     document.getElementById('index').addEventListener("scroll", this.scrollFn, false);
   },
   activated(){
-    document.getElementById('index').addEventListener("scroll", this.scrollFn, false);
+    this.isChangeBgc=false
   },
-  // deactivated(){
-  //    this.isChangeBgc=false
-  //    document.getElementById('index').removeEventListener("scroll", this.scrollFn);
-  // },
-  // beforeDestroy() {
-  //   document.getElementById('index').removeEventListener("scroll", this.scrollFn);
-  // },
 };
 </script>
 <style lang="scss">
