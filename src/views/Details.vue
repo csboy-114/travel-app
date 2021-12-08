@@ -22,6 +22,26 @@
         <span>已售 {{detailsInfo.sold_counts}}份</span>
       </div>
     </div>
+    <div class="details-main">
+      <div class="details-main-header"><span>产品简介</span></div>
+      <div class="details-main-text">
+        <div
+        :key="index"
+        v-for="(item,index) in detailsInfo.intros" 
+        class="details-main-text-item">
+         {{item}}
+        </div>
+      </div>
+       <div class="details-main-header"><span>预定流程</span></div>
+       <img src="@/assets/images/img_prebook.png">
+      <div class="details-main-header"><span>预定流程</span></div>
+      <div class="details-main-text">
+        <div class="details-main-text-item">
+         {{detailsInfo.refund}}
+        </div>
+      </div>
+    </div>
+    <div class="details-footer"></div>
   </div>
 </template>
 
@@ -61,6 +81,7 @@ export default {
 .details{
   width: 100vw;
   height: 100vh;
+  overflow: auto;
   background-color: #fff;
   &-header{
     justify-content: space-between;
@@ -93,7 +114,7 @@ export default {
     width: 335px;
     margin: 0 auto;
     padding-top: 16px;
-    padding-bottom: 11px;
+    padding-bottom: 16px;
     border-bottom: 1px solid #dadada;
     p{
       font-family: PingFangSC-Regular;
@@ -126,6 +147,39 @@ export default {
       font-size: 12px;
       color: #999;
       text-align: justify;
+    }
+  }
+  &-main{
+    margin-top: 40px;
+    &-header{
+      display: flex;
+      line-height: 20px;
+      font-family: PingFangSC-Medium;
+      font-size: 20px;
+      color: #333333;
+      font-weight: 600;
+      &:before{
+        display: block;
+        content: '';
+        width: 6px;
+        height: 22px;
+        margin-right: 10px;
+        background-color: #BF2A2F;
+      }
+    }
+    &-text{
+      width: 350px;
+      margin: 20px auto 40px;
+      &-item{
+        font-family: PingFangSC-Regular;
+        font-size: 14px;
+        color: #333333;
+        line-height: 24px;
+      }
+    }
+    img{
+      display: block;
+      margin: 20px auto;
     }
   }
 }
