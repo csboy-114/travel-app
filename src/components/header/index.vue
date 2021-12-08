@@ -31,7 +31,7 @@ export default {
   mounted() {
     document.getElementById('index').addEventListener("scroll", this.scrollFn, false);
   },
-  activated(){
+  deactivated(){
     this.isChangeBgc=false
   },
 };
