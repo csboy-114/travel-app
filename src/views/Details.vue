@@ -41,7 +41,21 @@
         </div>
       </div>
     </div>
-    <div class="details-footer"></div>
+    <div class="details-footer">
+      <div class="details-footer-left">
+        <div class="details-footer-left-item">
+          <i class="iconfont icon-service"></i>
+          <span>咨询</span>
+        </div>
+         <div class="details-footer-left-item">
+          <i class="iconfont icon-collect"></i>
+          <span>收藏</span>
+        </div>
+      </div>
+      <div class="details-footer-right">
+        立即预定
+      </div>
+    </div>
   </div>
 </template>
 
@@ -180,6 +194,53 @@ export default {
     img{
       display: block;
       margin: 20px auto;
+    }
+  }
+  &-footer{
+    display: flex;
+    padding: 0 10px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 50px;
+    border-top:1px solid #DADADA;
+    border-bottom:1px solid #DADADA;
+    &-left{
+      display: flex;
+      align-items: center;
+      width: 160px;
+      height: 100%;
+      &-item{
+        display: flex;
+        justify-content: space-evenly;
+        width: 76px;
+        height: 34px;
+        margin-right: 10px;
+        line-height: 34px;
+        text-align: center;
+        font-family: PingFangSC-Regular;
+        font-size: 14px;
+        font-weight: 600;
+        color: #BF2A2F;
+        border: 1px solid #BF2A2F;
+        i{
+          font-size: 14px;
+        }
+      }
+    }
+    &-right{
+      width: 120px;
+      height: 34px;
+      line-height: 34px;
+      letter-spacing: 1px;
+      font-weight: 500;
+      text-align: center;
+      background-color: #BF2A2F;
+      color: #fff;
+      border-radius: 3px;
+      font-family: PingFangSC-Regular;
+      font-size: 14px;
+      color: #FFFFFF;
     }
   }
 }
