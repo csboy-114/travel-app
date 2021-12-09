@@ -1,6 +1,6 @@
 <template>
   <div class="details" id="details">
-    <top-header class="details-header">
+    <top-header parentNode="details" class="details-header">
       <i @click="goBack" class="iconfont icon-back"></i>
       <span>
         <i class="iconfont icon-collect"></i>
@@ -61,7 +61,7 @@
 
 <script>
 import {getDetailsInfo} from '../api/details'
-import TopHeader from '../components/header_copy'
+import TopHeader from '../components/header'
 export default {
   name:'Details',
   components:{
@@ -219,6 +219,7 @@ export default {
         line-height: 34px;
         text-align: center;
         font-family: PingFangSC-Regular;
+        letter-spacing: 1px;
         font-size: 14px;
         font-weight: 600;
         color: #BF2A2F;
@@ -239,7 +240,7 @@ export default {
       color: #fff;
       border-radius: 3px;
       font-family: PingFangSC-Regular;
-      font-size: 14px;
+      font-size: 15px;
       color: #FFFFFF;
     }
   }

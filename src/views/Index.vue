@@ -1,7 +1,7 @@
 <template>
   <div class="index" id="index">
     <loading  :isShow="isLoading"/>
-     <topheader>
+     <topheader class="topIndex" parentNode="index">
        <searchBox :placeholder="'搜索目的地/折扣/关键字'"/>
      </topheader>
      <carousel :imgList="imgList" :swiperConfig="{loop:true,autoplay:true,effect:'fade'}"/>
@@ -59,5 +59,8 @@ export default {
   width: 100vw;
   height: 100vh;
   overflow: auto;
+  .topIndex{
+    align-items: center;
+  }
 }
 </style>
