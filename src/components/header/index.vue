@@ -12,9 +12,14 @@ export default {
       isLock:false
     };
   },
+  props:{
+    parentNode:{
+      type:String,
+    }
+  },
   methods: {
     isOver() {
-      const scrollTop = document.getElementById('index').scrollTop;
+      const scrollTop = document.getElementById(this.parentNode).scrollTop;
       const headerHight=document.getElementById("header").clientHeight;
       return scrollTop > headerHight;
     },
@@ -29,7 +34,7 @@ export default {
     },
   },
   mounted() {
-    document.getElementById('index').addEventListener("scroll", this.scrollFn, false);
+    document.getElementById(this.parentNode).addEventListener("scroll", this.scrollFn, false);
   },
   deactivated(){
     this.isChangeBgc=false
@@ -43,8 +48,6 @@ export default {
   width: 100%;
   height: 56px;
   @include flex();
-  justify-content: center;
-  align-items: center;
   background-color: transparent;
   transition:background 0.3s ease-out;
   &-transition {
