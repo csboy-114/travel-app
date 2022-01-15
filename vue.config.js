@@ -1,11 +1,11 @@
 module.exports = {
   devServer: {
     proxy: {
-      "/api": {
-        target: "https://www.imooc.com/api/mall-wepApp",
+      [process.env.VUE_APP_BASE_API]: {
+        target: process.env.VUE_APP_SERVICE_URL,
         changeOrigin: true,
         pathRewrite: {
-          "^/api": "",
+          [ '^' + process.env.VUE_APP_BASE_API]: ''
         },
       },
     },
