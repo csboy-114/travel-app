@@ -10,12 +10,18 @@ export default {
   data() {
     return {
       isShow: false,
-      isLock:false
+      isLock:false,
     };
+  },
+  props:{
+    scrollContainer:{
+      type:String,
+      default:''
+    }
   },
   methods: {
     isOver() {
-      const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+      const scrollTop = this.el.scrollTop
       return scrollTop > 80;
     },
     scrollFn() {
@@ -28,24 +34,29 @@ export default {
       }
     },
     goTop(){
-      window.scrollTo({
+      this.el.scrollTo({
         top:0,
         behavior:'smooth'
       })
     }
   },
+  computed:{
+    el(){
+      return document.getElementById(this.scrollContainer)
+    }
+  },
   mounted() {
-    window.addEventListener("scroll", this.scrollFn, false);
+    this.el.addEventListener("scroll", this.scrollFn, false);
   },
   activated(){
-    window.addEventListener("scroll", this.scrollFn, false);
+    this.el.addEventListener("scroll", this.scrollFn, false);
   },
   deactivated(){  
      this.isShow=false
-     window.removeEventListener("scroll", this.scrollFn);
+     this.el.removeEventListener("scroll", this.scrollFn);
   },
   beforeDestroy() {
-    window.removeEventListener("scroll", this.scrollFn);
+    this.el.removeEventListener("scroll", this.scrollFn);
   },
 }
 
@@ -55,6 +66,8 @@ export default {
 .back-top{
   position: fixed;
   @include flex();
+  justify-content: center;
+  align-items: center;
   z-index: 200;
   width: 40px;
   height: 40px;

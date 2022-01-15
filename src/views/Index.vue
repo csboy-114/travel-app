@@ -1,14 +1,13 @@
 <template>
-  <div class="index">
+  <div class="index" id="index">
     <loading  :isShow="isLoading"/>
-     <topheader>
+     <topheader class="topIndex" parentNode="index">
        <searchBox :placeholder="'搜索目的地/折扣/关键字'"/>
      </topheader>
      <carousel :imgList="imgList" :swiperConfig="{loop:true,autoplay:true,effect:'fade'}"/>
      <navbar :navList="navList"/>
      <count/>
-     <backtop />
-     <tabbar/>
+     <backtop :scrollContainer="'index'"/>
   </div>
 </template>
 
@@ -20,7 +19,7 @@ import tabbar from '../components/tabbar'
 import topheader from '../components/header'
 import loading from '../components/loading'
 import count from '../components/count'
-import backtop from '../components/backtop-index'
+import backtop from '../components/backtop'
 import {getSwiperInfo,getNavInfo} from '../api/index'
 export default {
   name: 'Index',
@@ -58,6 +57,10 @@ export default {
 <style lang="scss">
 .index{
   width: 100vw;
-  overflow-x:hidden ;
+  height: 100vh;
+  overflow: auto;
+  .topIndex{
+    align-items: center;
+  }
 }
 </style>

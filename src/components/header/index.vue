@@ -12,9 +12,14 @@ export default {
       isLock:false
     };
   },
+  props:{
+    parentNode:{
+      type:String,
+    }
+  },
   methods: {
     isOver() {
-      const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+      const scrollTop = document.getElementById(this.parentNode).scrollTop;
       const headerHight=document.getElementById("header").clientHeight;
       return scrollTop > headerHight;
     },
@@ -29,17 +34,10 @@ export default {
     },
   },
   mounted() {
-    window.addEventListener("scroll", this.scrollFn, false);
-  },
-  activated(){
-    window.addEventListener("scroll", this.scrollFn, false);
+    document.getElementById(this.parentNode).addEventListener("scroll", this.scrollFn, false);
   },
   deactivated(){
-     this.isChangeBgc=false
-     window.removeEventListener("scroll", this.scrollFn);
-  },
-  beforeDestroy() {
-    window.removeEventListener("scroll", this.scrollFn);
+    this.isChangeBgc=false
   },
 };
 </script>

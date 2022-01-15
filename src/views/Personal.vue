@@ -28,7 +28,6 @@
         <i class="iconfont icon-right"></i>
       </div>
     </div>
-    <tabbar />
   </div>
 </template>
 
@@ -52,6 +51,8 @@ export default {
     width: 100vw;
     height: 149px;
     background-image: url("../assets/images/Cover.png");
+    background-repeat: no-repeat;
+    background-size: cover;
   }
   .top-avatar{
     display: flex;

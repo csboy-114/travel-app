@@ -4,7 +4,7 @@
     class="tabbar-item" 
     v-for="item in tabbarInfo" 
     :key="item.text"
-    @click="goto(item.text)"
+    @click="goto(item)"
     >
       <i class="iconfont" :class="[item.class,nowItem==item.text?'tabbar-item-red':'']"></i>
       <span :class="[nowItem==item.text?'tabbar-item-red':'']">{{item.text}}</span>
@@ -34,28 +34,28 @@ export default {
       tabbarInfo:[
         {
           text:'首页',
-          class:'icon-home'
+          class:'icon-home',
+          name:'Index'
         },
         {
           text:'目的地',
-          class:'icon-dest'
+          class:'icon-dest',
+          name:'Destination'
         },
         {
           text:'我的',
-          class:'icon-personal'
+          class:'icon-personal',
+          name:'Personal'
         }
       ],
     }
   },
   methods:{
-    goto(text){
-      this.setNowItem(text)
-      const path= tabbarRoutes.find(item=>item.text==text).routes
-      if(this.$route.path!== path){
-        this.$router.push(path)
-      }
+    goto(item){
+      this.setNowItem(item.text)
+      this.setComponentName(item.name)
     },
-    ...mapMutations({setNowItem:'setNowItem'})
+    ...mapMutations({setNowItem:'setNowItem',setComponentName:'setComponentName'})
   },
   computed:{
     ...mapState({nowItem:'nowItem'})
@@ -69,13 +69,16 @@ export default {
   @include fix-position($site:bottom);
   width: 100vw;
   padding: 6px 0;
-  @include flex($justify:space-evenly);
+  @include flex();
+  justify-content: space-evenly;
   border-top: 0 solid #DADADA;
   box-shadow: 0 -4px 18px rgba(0,0,0,0.15);
   background-color: #fff;
   .tabbar-item{
     width: 33.333%;
     @include flex($direction:column);
+    justify-content: space-evenly;
+    align-items: center;
     i{
       font-size: 20px;
       margin-bottom: 5px;

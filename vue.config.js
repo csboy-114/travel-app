@@ -10,9 +10,9 @@ module.exports = {
         },
       },
     },
-    https: false, 
-    open: true, 
+    https: false,
+    open: true,
   },
   lintOnSave: false,
-  productionSourceMap: false, 
+  productionSourceMap: false,
 };

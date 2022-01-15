@@ -1,8 +1,12 @@
 <template>
   <div class="count">
     <div class="count-title">精选折扣</div>
-    <div class="count-item" v-for="item in 10" :key="item">
-      <img src="../../assets/images/图.png" alt="">
+    <div class="count-item" 
+    v-for="item in imgInfo" 
+    :key="item.id"
+    @click="goTo(item.id)"
+    >
+      <img :src="item.url" alt="">
       <div class="count-item-description">
         私人定制 | 巴黎凡尔赛宫+枫丹白露宫 包车1日 …
       </div>
@@ -17,9 +21,55 @@
 export default {
   data() {
     return {
-      
+      imgInfo:[
+        {
+          id:1,
+          url:require('../../assets/images/md1.png')
+        },        
+        {
+          id:2,
+          url:require('../../assets/images/md2.png')
+        },        
+        {
+          id:3,
+          url:require('../../assets/images/md3.png')
+        },        
+        {
+          id:4,
+          url:require('../../assets/images/md4.png')
+        },        
+        {
+          id:5,
+          url:require('../../assets/images/md5.png')
+        },        
+        {
+          id:6,
+          url:require('../../assets/images/md6.png')
+        },        
+        {
+          id:7,
+          url:require('../../assets/images/md7.png')
+        },        
+        {
+          id:8,
+          url:require('../../assets/images/md8.png')
+        }, 
+        {
+          id:9,
+          url:require('../../assets/images/md9.png')
+        }, 
+        {
+          id:10,
+          url:require('../../assets/images/md10.png')
+        }, 
+      ]
     }
   },
+  methods:{
+    goTo(id){
+      this.$router.push(`/details/${id}`)
+    }
+  }
 }
 
 </script>
@@ -38,7 +88,8 @@ export default {
     font-weight: 600;
   }
   &-item{
-    @include flex($inline:inline-block,$direction:column,$justify:space-between,$align:flex-start);
+    @include flex($inline:inline-block,$direction:column);
+    justify-content: space-between;
     &:nth-child(2n){
       margin-right: 29px;
     }

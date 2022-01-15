@@ -34,15 +34,15 @@
       </div>
     </div>
     <backTop :scrollContainer="'des-main'" />
-    <tabbar />
   </div>
 </template>
 
 <script>
 import tabbar from "../components/tabbar";
 import searchBox from "../components/searchbox";
-import backTop from "../components/backtop-des";
+import backTop from "../components/backtop";
 import { getDestInfo } from "../api/destination";
+import {get,set} from '@/utils/sessionStorage.js'
 export default {
   name: "Destination",
   components: {
@@ -64,17 +64,31 @@ export default {
       siedebarClickItem: "亚洲",
       displayVar: "block",
       desMainInfo: [],
+      cache:[]
     };
   },
   methods: {
+    cancel(){
+      let cancelArr=window.axiosCancel;
+      cancelArr.forEach((ele,index) => {
+        ele.cancel('取消了请求')
+        delete window.axiosCancel[index]
+      });
+    },
     changeSideBarStyle(currentItem) {
+      this.cancel()
       this.siedebarClickItem = currentItem.text;
-      this.getDestMainInfo(currentItem.id);
+      if(!get(currentItem.id)){
+        this.getDestMainInfo(currentItem.id);
+      }else{
+        this.desMainInfo=get(currentItem.id)
+      }
     },
     getDestMainInfo(id) {
       getDestInfo(id)
         .then((res) => {
-          this.desMainInfo = res;
+            this.desMainInfo = res;
+            set(id,res)
         })
         .catch((err) => {
           console.log(err);
