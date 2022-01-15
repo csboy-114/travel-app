@@ -1,4 +1,5 @@
 module.exports = {
+  publicPath:process.env.NODE_ENV==='production'?'/travel-webapp/':'/',
   devServer: {
     proxy: {
       [process.env.VUE_APP_BASE_API]: {
