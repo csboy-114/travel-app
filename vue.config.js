@@ -14,5 +14,5 @@ module.exports = {
     open: true,
   },
   lintOnSave: false,
-  productionSourceMap: false,
+  productionSourceMap: false
 };

@@ -3,10 +3,11 @@ import App from './App.vue'
 import Panel from './components/panel/index'
 import router from './router'
 import store from './store'
-import 'amfe-flexible'
+
 import './assets/styles/reset.scss'
 import './assets/styles/base.scss'
 import './assets/icons/iconfont.css'
+
 Vue.config.productionTip = false
 Vue.use(Panel)
 new Vue({
