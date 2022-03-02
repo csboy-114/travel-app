@@ -27,7 +27,7 @@
           class="des-main-item"
           v-for="item in desMainInfo"
           :key="item.text"
-          :style="{ backgroundImage: `url(${item.url})` }"
+          v-lazy:background-image="item.url"
         >
           {{ item.text }}
         </div>
