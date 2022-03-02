@@ -6,7 +6,7 @@
     :key="item.id"
     @click="goTo(item.id)"
     >
-      <img :src="item.url" alt="">
+      <img  v-lazy="item.url" alt="">
       <div class="count-item-description">
         私人定制 | 巴黎凡尔赛宫+枫丹白露宫 包车1日 …
       </div>

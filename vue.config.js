@@ -14,5 +14,13 @@ module.exports = {
     open: true,
   },
   lintOnSave: false,
-  productionSourceMap: false
+  productionSourceMap: false,
+  chainWebpack:config=>{
+      config.set('externals',{
+        vue:'Vue',
+        'vue-router':'VueRouter',
+        axios:'axios',
+        vuex:'Vuex'
+      })
+  }
 };
